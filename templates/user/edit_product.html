@@ -1,0 +1,46 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>Untitled Document</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+</head>
+
+<body>
+<form action="/myapp/edit_Customised_product_post/" method="post" enctype="multipart/form-data" name="form1" id="form1">
+    {% csrf_token %}
+  <table width="412" border="1">
+   <input type="hidden" value="{{ data.PRODUCT_id }}" name="id">
+    <tr>
+      <th scope="row">PRODUCT_NAME</th>
+      <td><input type="text" name="product_name" id="product_name" value="{{ data.PRODUCT.product_name }}"/></td>
+    </tr>
+    <tr>
+      <th scope="row">DESCRIPTION</th>
+      <td><textarea rows="" cols="" name="description">{{ data.PRODUCT.description }}</textarea></td>
+    </tr>
+    <tr>
+      <th scope="row">MATERIAL</th>
+      <td><input type="text" name="material" id="material" value="{{ data.PRODUCT.material }}"/></td>
+    </tr>
+{#    <tr>#}
+{#      <th scope="row">PRICE</th>#}
+{#      <td><input type="text" name="price" id="price"value="{{ data.PRODUCT.price }}"/></td>#}
+{#    </tr>#}
+    <tr>
+      <th scope="row">PHOTO</th>
+      <td><input type="file" name="photo" id="photo" /><img src="{{ data.PRODUCT.photo }}" height="200" width="200"></td>
+    </tr>
+    <tr>
+      <th scope="row">&nbsp;</th>
+      <td><input type="submit" name="button3" id="button3" value="UPDATE" /></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+</html>

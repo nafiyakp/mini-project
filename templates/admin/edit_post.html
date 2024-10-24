@@ -1,0 +1,166 @@
+{#{% extends 'admin/adminindex.html' %}#}
+{#{% block body %}#}
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<!-- TemplateBeginEditable name="doctitle" -->#}
+{#<title>Untitled Document</title>#}
+{#<!-- TemplateEndEditable -->#}
+{#<!-- TemplateBeginEditable name="head" -->#}
+{#<!-- TemplateEndEditable -->#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<form action="/myapp/edit_post_post/" method="post" enctype="multipart/form-data" name="form1" id="form1">#}
+{#    {% csrf_token %}#}
+{#  <tr>#}
+{#    <table class="table table-bordered table-striped table-hover">#}
+{#        <input type="hidden" value="{{ data.id }}" name="id">#}
+{#      <tr>#}
+{#        <td height="34">POST_NAME</td>#}
+{#          <td><input type="text" value="{{ data.post_name }}" name="post_name"></td>#}
+{#      </tr>#}
+{#      <tr>#}
+{#        <td height="34"><p>DESIGN_ID</p></td>#}
+{#        <td><label>#}
+{#         <select name="design_id" class="form-control"  >#}
+{#           {% for i in cat %}#}
+{#              <option value="{{ i.id }}">{{ i.design_name }}</option>#}
+{#           {% endfor %}</select>#}
+{#        </label></td>#}
+{#      </tr>#}
+{#      <tr>#}
+{#        <td width="241">PHOTO_1</td>#}
+{#        <td width="181"><input type="file" name="photo_1"  class="form-control" /><br>#}
+{#            <img src="{{ data.photo_1 }}"height="200"width="200"></td>#}
+{#      </tr>#}
+{#      <tr>#}
+{#        <td>PHOTO_2</td>#}
+{#        <td><input type="file" name="photo_2" id="photo_2" class="form-control" /><br>#}
+{#            <img src="{{ data.photo_2 }}"height="300"width="200"></td>#}
+{#      </tr>#}
+{#      <tr>#}
+{#        <td>PHOTO_3</td>#}
+{#        <td><input type="file" name="photo_3" id="photo_3" class="form-control" /><br>#}
+{#            <img src="{{ data.photo_3 }}"height="200"width="200"></td>#}
+{#      </tr>#}
+{#      <tr>#}
+{#        <td>DESCRIPTION_1</td>#}
+{#        <td><input type="text" name="description_1" id="textfield2"value="{{data.description_1 }}" class="form-control"  /></td>#}
+{#      </tr>#}
+{#      <tr>#}
+{#        <td>DESCRIPTION_2</td>#}
+{#        <td><input type="text" name="description_2" id="textfield3"value="{{data.description_2   }}"  class="form-control" /></td>#}
+{#      </tr>#}
+{#      <tr>#}
+{#        <td height="34">DESCRIPTION_3</td>#}
+{#        <td><input type="text" name="description_3" id="textfield4"value= "{{ data.description_3}}" class="form-control" /></td>#}
+{#      </tr>#}
+{#      <tr>#}
+{#        <td height="34" colspan="2"><input type="submit" name="32" id="32" value="UPDATE"class="btn btn-success"  /></td>#}
+{#        </tr>#}
+{#    </table></td>#}
+{#  </tr>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+{#{% endblock %}#}
+
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Post</title>
+  <!-- Assuming Bootstrap CSS is already included -->
+</head>
+<body>
+  <div class="container mt-4">
+    <h3>Edit Post</h3>
+    <form action="/myapp/edit_post_post/" method="post" enctype="multipart/form-data" id="form1">
+      {% csrf_token %}
+
+      <!-- Hidden Field for ID -->
+      <input type="hidden" value="{{ data.id }}" name="id">
+
+      <div class="row">
+        <!-- POST NAME -->
+        <div class="col-md-6 mb-3">
+          <label for="post_name" class="form-label">Post Name</label>
+          <input type="text" class="form-control" id="post_name" name="post_name" value="{{ data.post_name }}" required>
+        </div>
+
+        <!-- DESIGN ID -->
+        <div class="col-md-6 mb-3">
+          <label for="design_id" class="form-label">Design ID</label>
+          <select name="design_id" id="design_id" class="form-control" required>
+            {% for i in cat %}
+              <option value="{{ i.id }}" {% if i.id == data.design_id %}selected{% endif %}>{{ i.design_name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+
+      <!-- PHOTO 1 WITH DESCRIPTION 1 -->
+      <div class="row">
+        <!-- PHOTO 1 -->
+        <div class="col-md-6 mb-3">
+          <label for="photo_1" class="form-label">Photo 1</label>
+          <input type="file" class="form-control" id="photo_1" name="photo_1">
+          <img src="{{ data.photo_1 }}" alt="Photo 1" class="img-fluid mt-2" style="max-width: 100px; max-height: 100px;">
+        </div>
+
+        <!-- DESCRIPTION 1 -->
+        <div class="col-md-6 mb-3">
+          <label for="description_1" class="form-label">Description 1</label>
+          <input type="text" class="form-control" id="description_1" name="description_1" value="{{ data.description_1 }}" required>
+        </div>
+      </div>
+
+      <!-- PHOTO 2 WITH DESCRIPTION 2 -->
+      <div class="row">
+        <!-- PHOTO 2 -->
+        <div class="col-md-6 mb-3">
+          <label for="photo_2" class="form-label">Photo 2</label>
+          <input type="file" class="form-control" id="photo_2" name="photo_2">
+          <img src="{{ data.photo_2 }}" alt="Photo 2" class="img-fluid mt-2" style="max-width: 100px; max-height: 100px;">
+        </div>
+
+        <!-- DESCRIPTION 2 -->
+        <div class="col-md-6 mb-3">
+          <label for="description_2" class="form-label">Description 2</label>
+          <input type="text" class="form-control" id="description_2" name="description_2" value="{{ data.description_2 }}" required>
+        </div>
+      </div>
+
+      <!-- PHOTO 3 WITH DESCRIPTION 3 -->
+      <div class="row">
+        <!-- PHOTO 3 -->
+        <div class="col-md-6 mb-3">
+          <label for="photo_3" class="form-label">Photo 3</label>
+          <input type="file" class="form-control" id="photo_3" name="photo_3">
+          <img src="{{ data.photo_3 }}" alt="Photo 3" class="img-fluid mt-2" style="max-width: 100px; max-height: 100px;">
+        </div>
+
+        <!-- DESCRIPTION 3 -->
+        <div class="col-md-6 mb-3">
+          <label for="description_3" class="form-label">Description 3</label>
+          <input type="text" class="form-control" id="description_3" name="description_3" value="{{ data.description_3 }}" required>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <input type="submit" class="btn btn-success" value="UPDATE">
+        </div>
+      </div>
+
+    </form>
+  </div>
+</body>
+</html>
+{% endblock %}

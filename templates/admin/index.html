@@ -1,0 +1,119 @@
+{% load static %}
+<html lang="zxx">
+
+<head>
+    <title>Validator Signup Form Responsive Widget Template :: w3layouts</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords" content="Validator Signup Form Responsive Widget,Login form widgets, Sign up Web forms, Registration Forms, News letter Forms"
+    />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <link rel="stylesheet" href="/static/signup/web/css/style.css" type="text/css" media="all" />
+    <link href="//fonts.googleapis.com/css?family=Cuprum:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext,vietnamese"
+        rel="stylesheet">
+</head>
+
+<body>
+    <h1><span>U</span>ser <span>S</span>ignup <span>F</span>orm</h1>
+
+    <div class="sub-main-w3">
+        <form validate="true" action="/myapp/register_post/" method="post">
+             {% csrf_token %}
+            <div class="form-group">
+                <label for="exampleInputText">Name</label>
+                <input type="text" class="form-control" name="name" id="exampleInputText" placeholder="Enter Name" pattern="[A-Z a-z]*" required>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="Enter email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleMobile1">Mobile Number</label>
+                <input type="text" class="form-control" name="mobilenumber" id="exampleMobile1" placeholder="Mobile number" pattern="[9876][0-9]{9}" title="enter atleast 10 numbers"required>
+            </div>
+
+            <div class="form-group">
+                <label for="Place">Place</label>
+                <input type="text" class="form-control" name="place" id="Place" placeholder="Place" minlength="3" maxlength="10" pattern="[A-Z a-z]*" required>
+            </div>
+
+            <div class="form-group">
+                <label for="district">District : </label>
+                <select style="height: 30px;border-radius: 8px;" class="form-control" id="district" name="district" pattern="[A-Z a-z]*"required>
+                    <option value="" disabled selected>Select District</option>
+                    <option value="" disabled selected>Select District</option>
+    <option value="THIRUVANANTHAPURAM">THIRUVANANTHAPURAM</option>
+    <option value="KOLLAM">KOLLAM</option>
+    <option value="PATHANAMTHITTA">PATHANAMTHITTA</option>
+    <option value="ALAPPUZHA">ALAPPUZHA</option>
+    <option value="KOTTAYAM">KOTTAYAM</option>
+    <option value="IDUKKI">IDUKKI</option>
+    <option value="ERNAKULAM">ERNAKULAM</option>
+    <option value="THRISSUR">THRISSUR</option>
+    <option value="PALAKKAD">PALAKKAD</option>
+    <option value="MALAPPURAM">MALAPPURAM</option>
+    <option value="KOZHIKODE">KOZHIKODE</option>
+    <option value="WAYANAD">WAYANAD</option>
+    <option value="KANNUR">KANNUR</option>
+    <option value="KASARAGOD">KASARAGOD</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="post">Post</label>
+                <input type="text" class="form-control" name="post" id="post" placeholder="Post" pattern="[A-Z a-z]*"required>
+            </div>
+
+            <div class="form-group">
+                <label for="pin">Pin</label>
+                <input type="text" class="form-control" name="pin" id="pin" placeholder="Pin"pattern="[0-9]{6}" maxlength="6" required>
+            </div>
+
+
+            <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" name="password" id="password"
+        placeholder="Password"
+        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+        title="Must contain at least one number, one uppercase letter, one lowercase letter, and be at least 8 characters long"
+        required>
+</div>
+
+<div class="form-group">
+    <label for="confirm_password">Confirm Password</label>
+    <input type="password" class="form-control" name="confirm_password" id="confirm_password"
+        placeholder="Confirm Password"
+        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+        title="Must match the password and follow the same rules"
+        required>
+</div>
+
+
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="terms" required>
+                <label class="form-check-label" for="terms">I agree to the terms and conditions</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <div class="footer">
+
+        </p>
+    </div>
+
+
+</body>
+
+</html>

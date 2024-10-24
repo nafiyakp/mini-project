@@ -1,0 +1,36 @@
+{% extends 'admin/adminindex.html' %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>Untitled Document</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/addcategory_post/" enctype="multipart/form-data">
+    {% csrf_token %}
+  <table class="table table-bordered table-striped table-hover">
+    <tr>
+      <td width="132" height="46">CATEGORY_NAME</td>
+      <td width="163"><label>
+        <input type="text" name="category_name" id="2" pattern="[A-Z a-z]*" title="add name" class="form-control" required/>
+      </label></td>
+    </tr>
+      <tr>
+    <th scope="row">PHOTO</th>
+    <td><input type="file" name="pho" id="fileField" class="form-control"required/></td>
+  </tr>
+    <tr>
+      <td height="58">&nbsp;</td>
+      <td><input type="submit" name="22" id="22" value="ADD" class="btn btn-success"/></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}
