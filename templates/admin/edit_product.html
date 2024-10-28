@@ -14,7 +14,7 @@
 <body>
 <form action="/myapp/AddAmounttocustomisedproduct_post/" method="post" enctype="multipart/form-data" name="form1" id="form1">
     {% csrf_token %}
-  <table width="412" border="1">
+<table class="table table-bordered table-striped table-hover"class="form-control" >
    <input type="hidden" value="{{ data.PRODUCT.id }}" name="pid">
 {#    <tr>#}
 {#      <th width="179" scope="row">PRODUCT_ID</th><input type="hidden" value="{{ data.id }}"name="id">#}
@@ -50,7 +50,7 @@
     </tr>
     <tr>
       <th scope="row">&nbsp;</th>
-      <td><input type="submit" name="button3" id="button3" value="UPDATE" /></td>
+      <td><input type="submit" name="button3" id="button3" value="UPDATE"class="btn btn-success" /></td>
     </tr>
   </table>
   <p>&nbsp;</p>

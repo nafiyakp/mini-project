@@ -18,11 +18,11 @@
 <input type="hidden" value="{{ data.id }}" name="id">
     <tr>
       <th width="176" scope="col">CATEGORY_NAME</th>
-      <th width="121" scope="col"><input type="text" name="category_name" id="5" value="{{ data.category_name }}" class="form-control"/></th>
+      <th width="121" scope="col"><input type="text" name="category_name" id="5" value="{{ data.category_name }}" class="form-control"pattern="[A-Z a-z]*" required/></th>
     </tr>
        <tr>
       <th width="176" scope="col">PHOTO</th>
-      <th width="121" scope="col"><input type="file" name="photo" id=" " class="form-control" /> <img src="{{ data.photo }}" width="200px" height="200px" > </th>
+      <th width="121" scope="col"><input type="file" name="photo" id=" " class="form-control" /> <img src="{{ data.photo }}" width="200px" height="200px" required> </th>
     </tr>
     <tr>
       <td>&nbsp;</td>

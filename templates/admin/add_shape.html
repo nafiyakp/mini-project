@@ -16,8 +16,8 @@
     {% csrf_token %}
   <table class="table table-bordered table-striped table-hover">
       <tr>
-    <th scope="row">CATEGORY_ID</th>
-    <td><select name="id" id="select"class="form-control">
+    <th scope="row">CATEGORY</th>
+    <td><select name="id" id="select"class="form-control" pattern="[A-Z a-z]*" required>
         {% for i in data %}
         <option value="{{ i.id }}">{{ i.category_name }}</option>
         {% endfor %}

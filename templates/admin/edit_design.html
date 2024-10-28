@@ -17,26 +17,37 @@
  <table class="table table-bordered table-striped table-hover">
 <input type="hidden" value="{{ data.id }}" name="id">
     <tr>
-      <td width="105">CATEGORY_ID</td>
-      <td><select name="category_id"  class="form-control"required>
+      <td width="105">CATEGORY</td>
+      <td><select name="category_id"  class="form-control"required pattern="[A-Z a-z]*" required>
           {% for i in cat %}
-              <option {% if data.CATEGORY_id == i.id %}selected{% endif %}  value="{{ i.id }}">{{ i.category_name }}</option>
+              <option {% if data.WOOD.CATEGORY.id == i.id %}selected{% endif %} value="{{ i.id }}">{{ i.category_name }}</option>
+
+{#              <option {% if data.category_id == i.id %}selected{% endif %}  value="{{ i.id }}">{{ i.category_name }}</option>#}
           {% endfor %}
       </select></td>
     </tr>
     <tr>
       <td>PHOTO</td>
-      <td><input type="file" name="photo" id="photo"   /><br>
 
-          <img src="{{ data.photo }}" width="10px" height="200px"></td>
+      <td><input type="file" name="photo" id="photo" required  /><br>
+
+          <img src="{{ data.photo}}" width="200px" height="200px"></td>
     </tr>
     <tr>
       <td>PRICE</td>
-      <td><input type="text" name="price" id="price" value="{{ data.price }}" class="form-control"/></td>
+      <td><input type="text" name="price" id="price" value="{{ data.price }}" class="form-control"pattern="[0-9]{1-6}"required/></td>
+    </tr>
+  <tr>
+      <td>SHAPE</td>
+      <td><input type="text" name="shapes" id="shape" value="{{ data.shape}}" class="form-control"required/></td>
+    </tr>
+  <tr>
+      <td>WOOD_NAME</td>
+      <td><input type="text" name="wood_name" id="wood_name" value="{{ data.WOOD.wood_name }}" class="form-control"required/></td>
     </tr>
     <tr>
-      <td><p>DESCRIPTION</p></td>
-      <td><input type="text" name="description" id="description"value="{{ data.description }} class="form-control"/></td>
+      <td>DESCRIPTION</td>
+        <td><TEXTAREA  name="description" id="description" class="form-control"required >{{ data.description }}</TEXTAREA></td>
     </tr>
     <tr>
       <td>&nbsp;</td>

@@ -1,45 +1,162 @@
+{##}
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<!-- TemplateBeginEditable name="doctitle" -->#}
+{#<title>Untitled Document</title>#}
+{#<!-- TemplateEndEditable -->#}
+{#<!-- TemplateBeginEditable name="head" -->#}
+{#<!-- TemplateEndEditable -->#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<form action="/myapp/sendcustomized_request_post/" method="post" enctype="multipart/form-data" name="form1" id="form1">#}
+{#    {% csrf_token %}#}
+{#  <table width="412" border="1">#}
+{#      <tr>#}
+{#          <th>Wood Name</th>#}
+{#          <td>#}
+{#              <select name="wood">#}
+{#                  {% for i in data %}#}
+{#                  <option value="{{ i.id }}">{{ i.wood_name }}</option>#}
+{#                  {% endfor %}#}
+{#              </select>#}
+{#          </td>#}
+{#      </tr>#}
+{##}
+{##}
+{#  <tr>#}
+{#          <th>Shape</th>#}
+{#          <td>#}
+{#              <select name="shape">#}
+{#                  {% for i in d %}#}
+{#                  <option value="{{ i.SHAPES.id }}">{{ i.SHAPES.shape }}</option>#}
+{#                  {% endfor %}#}
+{#              </select>#}
+{#          </td>#}
+{#      </tr>#}
+{##}
+{#    <tr>#}
+{#      <th width="179" scope="row">PRODUCT_NAME</th>#}
+{#      <td width="217"><input type="text" name="textfield" id="textfield" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <th scope="row">DISCRIPTION</th>#}
+{#      <td><input type="text" name="textfield2" id="textfield2" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <th scope="row">MATERIAL</th>#}
+{#      <td><input type="text" name="textfield3" id="textfield3" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <th scope="row">PHOTO</th>#}
+{#      <td><input type="file" name="fileField" id="fileField" /></td>#}
+{#    </tr>#}
+{##}
+{#          <tr>#}
+{#      <th scope="row">QUANTITY</th>#}
+{#      <td><input type="NUMBER" name="num" id="fileField" /></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <th scope="row">&nbsp;</th>#}
+{#      <td><input type="submit" name="button" id="button" value="ADD" /></td>#}
+{#    </tr>#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
 
+
+{% extends 'user/userindex.html' %}
+{% block body %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<!-- TemplateBeginEditable name="doctitle" -->
-<title>Untitled Document</title>
-<!-- TemplateEndEditable -->
-<!-- TemplateBeginEditable name="head" -->
-<!-- TemplateEndEditable -->
+<title>Customized Order</title>
 </head>
 
 <body>
-<form action="/myapp/addCustomisedproduct_post/" method="post" enctype="multipart/form-data" name="form1" id="form1">
+<form action="/myapp/sendcustomized_request_post/" method="post" enctype="multipart/form-data" name="form1" id="form1">
     {% csrf_token %}
-  <table width="412" border="1">
-    <tr>
-      <th width="179" scope="row">PRODUCT_NAME</th>
-      <td width="217"><input type="text" name="textfield" id="textfield" /></td>
-    </tr>
-    <tr>
-      <th scope="row">DISCRIPTION</th>
-      <td><input type="text" name="textfield2" id="textfield2" /></td>
-    </tr>
-    <tr>
-      <th scope="row">MATERIAL</th>
-      <td><input type="text" name="textfield3" id="textfield3" /></td>
-    </tr>
-    <tr>
-      <th scope="row">PHOTO</th>
-      <td><input type="file" name="fileField" id="fileField" /></td>
-    </tr>
+<table class="table table-bordered table-striped table-hover"class="form-control" >
 
-          <tr>
-      <th scope="row">QUANTITY</th>
-      <td><input type="NUMBER" name="num" id="fileField" /></td>
-    </tr>
-    <tr>
-      <th scope="row">&nbsp;</th>
-      <td><input type="submit" name="button" id="button" value="ADD" /></td>
-    </tr>
+      <tr>
+          <th>Wood Name</th>
+          <td>
+              <select name="wood" id="wood_select"pattern="[A-Z a-z]*" required>
+                  {% for i in data %}
+                  <option value="{{ i.id }}" data-sqft="{{ i.sqft_charge }}">{{ i.wood_name }}</option>
+                  {% endfor %}
+              </select>
+          </td>
+      </tr>
+
+      <tr>
+          <th>Shape</th>
+          <td>
+              <select name="shape"required>
+                  {% for i in d %}
+                  <option value="{{ i.SHAPES.id }}">{{ i.SHAPES.shape }}</option>
+                  {% endfor %}
+              </select>
+          </td>
+      </tr>
+
+      <tr>
+        <th width="179" scope="row">PRODUCT_NAME</th>
+        <td width="217"><input type="text" name="textfield" id="textfield"pattern="[A-Z a-z]*" required /></td>
+      </tr>
+
+      <tr>
+        <th scope="row">DISCRIPTION</th>
+        <td><input type="text" name="textfield2" id="textfield2" required/></td>
+      </tr>
+
+      <tr>
+        <th scope="row">MATERIAL</th>
+        <td><input type="text" name="textfield3" id="textfield3" required /></td>
+      </tr>
+
+      <tr>
+        <th scope="row">PHOTO</th>
+        <td><input type="file" name="fileField" id="fileField" required /></td>
+      </tr>
+
+      <tr>
+        <th scope="row">QUANTITY</th>
+        <td><input type="number" name="quantity" id="quantity" oninput="updateTotal()" pattern="[0-9]{1-6}"required/></td>
+      </tr>
+
+      <tr>
+        <th scope="row">Total Cost (SQFT Charge x Quantity)</th>
+        <td><input type="text" id="total_cost" readonly name="price" pattern="[0-9]{1-6}"required/></td>
+      </tr>
+
+      <tr>
+        <th scope="row">&nbsp;</th>
+        <td><input type="submit" name="button" id="button" value="ADD" class="btn btn-success"/></td>
+      </tr>
   </table>
 </form>
+
+<script type="text/javascript">
+    function updateTotal() {
+        var woodSelect = document.getElementById('wood_select');
+        var selectedWood = woodSelect.options[woodSelect.selectedIndex];
+        var sqftCharge = parseFloat(selectedWood.getAttribute('data-sqft')) || 0;
+
+        var quantity = parseFloat(document.getElementById('quantity').value) || 0;
+
+        var totalCost = sqftCharge * quantity;
+
+        document.getElementById('total_cost').value = totalCost.toFixed(2);
+    }
+
+    // Add event listener to trigger calculation when wood selection changes
+    document.getElementById('wood_select').addEventListener('change', updateTotal);
+</script>
 </body>
 </html>
+{% endblock %}

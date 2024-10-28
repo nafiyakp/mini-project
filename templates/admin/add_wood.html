@@ -17,7 +17,7 @@
  <table class="table table-bordered table-striped table-hover">
       <tr>
       <td> category</td>
-      <td><select name="cat" id="select" class="form-control">
+      <td><select name="cat" id="select" class="form-control" pattern="[A-Z a-z]*" required>
           {% for i in data %}
         <option value="{{ i.id }}">{{ i.category_name }}</option>
           {% endfor %}
@@ -40,7 +40,7 @@
     </tr>
       <tr>
       <td>sqft_charge</td>
-      <td><input type="text" name="sqftcharge" id="textfield" class="form-control"required/></td>
+      <td><input type="text" name="sqftcharge" id="textfield" class="form-control"pattern="[0-9]{1-6}"required/></td>
     </tr>
        <tr>
     <th colspan="2" scope="row"><input type="submit" name="button" id="button" value="ADD"class="btn btn-success" /></th>

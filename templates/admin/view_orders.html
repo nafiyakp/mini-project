@@ -28,7 +28,7 @@
       <td>{{ i.CUSTOMER_ID.place }}<br>{{ i.CUSTOMER_ID.pin }}<br>{{ i.CUSTOMER_ID.post }}<br>{{ i.CUSTOMER_ID.district }}</td>
       <td><img src="{{ i.DESIGN.photo }}" height="100px" width="100px"><br>{{ i.DESIGN.design_name }}
         <td>{{ i.quantity }}</td>
-      <td><a href="/myapp/verifi_orders/{{ i.id }}">VERIFY</a></td>
+      <td><a href="/myapp/verifi_orders/{{ i.id }}"class="btn btn-success">VERIFY</a></td>
     </tr>
       {% endfor %}
   </table>

@@ -1,4 +1,5 @@
-
+{% extends 'user/userindex.html' %}
+{% block body %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -11,17 +12,20 @@
 </head>
 
 <body>
-<form id="form1" name="form1" method="post" action="/myapp/view_category_post/">
+<form id="form1" name="form1" method="post" action="/myapp/choose_category_post/" enctype="multipart/form-data">
     {% csrf_token %}
+<table class="pull-left">
   <p>&nbsp;</p>
-  <table width="356" height="117" border="1">
     <tr>
-      <th colspan="2" scope="col"><input type="text" name="search" /></th>
-      <th colspan="2" scope="col"><input type="submit" id="button" value="SEARCH" /></th>
+      <th colspan="2" scope="col">&nbsp<input type="text" name="search" /></th>
+      <th colspan="2" scope="col"><input type="submit" id="button" value="SEARCH" class="btn btn-info" class="form-control"/></th>
     </tr>
+  </table>
+<table class="table table-bordered table-striped table-hover">
     <tr>
       <th width="42" scope="col">S/NO</th>
-      <th width="110" scope="col">CATEGORY_NAME</th>
+      <th width="110" scope="col"class="form-control">CATEGORY_NAME</th>
+
       <th width="79" scope="col">&nbsp;</th>
 {#      <th width="97" scope="col">&nbsp;</th>#}
     </tr>
@@ -33,8 +37,8 @@
     </tr>
       {% endfor %}
   </table>
-  <p>&nbsp;</p>
-  <p>&nbsp;</p>
+
 </form>
 </body>
 </html>
+{% endblock %}

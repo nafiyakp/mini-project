@@ -17,7 +17,7 @@
   <table class="table table-bordered table-striped table-hover">
        <tr>
       <td>shape</td>
-      <td><select name="shape" id="select" class="form-control">
+      <td><select name="shape" id="select" class="form-control"required>
           {% for i in data %}
         <option value="{{ i.id }}">{{ i.shape }}</option>
           {% endfor %}

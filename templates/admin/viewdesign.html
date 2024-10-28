@@ -26,8 +26,10 @@
       <th width="173" scope="col">CATEGORY_ID</th>
       <th width="78" scope="col">PHOTO</th>
       <th width="84" scope="col">PRICE</th>
-      <th width="199" scope="col">DESCRIPTION</th>
-      <th width="199" scope="col">&nbsp;</th>
+        <th width="78" scope="col">shape</th>
+        <th width="78" scope="col">wood_name</th>
+        <th width="199" scope="col">DESCRIPTION</th>
+
     </tr>
 
       {% for i in data %}
@@ -36,7 +38,9 @@
       <td>&nbsp;{{ i.WOOD.CATEGORY.category_name }}</td>
       <td><img src="{{ i.photo }}" height="200" width="200"> </td>
       <td>&nbsp;{{ i.price }}</td>
-      <td>&nbsp;{{ i.description }}</td>
+      <td>{{ i.shape }}</td>
+         <td>&nbsp;{{ i.WOOD.wood_name }}</td>
+          <td>&nbsp;{{ i.description }}height="50px"width="500px"</td>
       <td><p><a href="/myapp/edit_design/{{ i.id }}"class="btn btn-primary">edit</a></p><br>
       <p><a href="/myapp/delete_design/{{ i.id }}"class="btn btn-danger">delete</a></p></td>
     </tr>

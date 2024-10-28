@@ -17,10 +17,10 @@
     <table class="table table-bordered table-striped table-hover">
         <tr>
           <td height="34">POST_NAME</td>
-          <td><input type="text" name="post" id="post_name"class="form-control" required/></td>
+          <td><input type="text" name="post" id="post_name"class="form-control" pattern="[A-Z a-z]*" required/></td>
         </tr>
         <tr>
-          <td height="34"><p>DESIGN_ID</p></td>
+          <td height="34"><p>DESIGN</p></td>
           <td><label>
             <select name="id1" id="select" class="form-control"required>
                 {% for i in data %}
@@ -43,16 +43,14 @@
         </tr>
         <tr>
           <td>DESCRIPTION_1</td>
-          <td><input type="text" name="description_1" id="description_1"class="form-control" required/></td>
+           <td><textarea  name="description_1" id="description_1" class="form-control" required>{{ data.description_1 }}</textarea></td>
         </tr>
         <tr>
           <td>DESCRIPTION_2</td>
-          <td><input type="text" name="description_2" id="description_2"class="form-control"required /></td>
-        </tr>
+ <td><textarea  name="description_2" id="description_2" class="form-control" required>{{ data.description_2 }}</textarea></td>
         <tr>
           <td height="34">DESCRIPTION_3</td>
-          <td><input type="text" name="description_3" id="textfield7" class="form-control"required/></td>
-        </tr>
+ <td><textarea  name="description_3" id="description_3" class="form-control" required>{{ data.description_3 }}</textarea></td>
         <tr>
           <td height="34">&nbsp;</td>
           <td><input type="submit" name="32" id="32" value="ADD" class="btn btn-success"required/></td>

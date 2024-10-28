@@ -39,11 +39,37 @@
   </tr>
   <tr>
     <th scope="row">PRICE</th>
-    <td><input type="text" name="price" id="textfield" class="form-control" pattern="[0-9]{5}"required/></td>
+    <td><input type="text" name="price" id="textfield" class="form-control" pattern="[0-9]{1-6}"required/></td>
   </tr>
+ <tr>
+      <td>SHAPE</td>
+      <td><select name="shapes" id="shapes" class="form-control"required>
+        <option value="ROUND">ROUND</option>
+        <option value="OVAL">OVAL</option>
+          <option value="HEXAGON">HEXAGON</option>
+       <option value="L-SHAPED">L-SHAPED</option>
+        <option value="RECTANLE">RECTANLE</option>
+          <option value="RECTANLE">SQUARE</option>
+
+      </select></td>
+    </tr>
+ <tr>
+      <td>WOOD NAME</td>
+      <td><select name="wood_name" id="wood_name"class="form-control"required>
+        <option value="TEAK">TEAK</option>
+        <option value="MAHOGAANY">MAHOGAANY</option>
+          <option value="PLYWOOD">PLYWOOD</option>
+       <option value="ACASIA">ACASIA</option>
+        <option value="MAPLE">MAPLE</option>
+        <option value="OAK">OAK</option>
+        <option value="BAMBOO">BAMBOO</option>
+          <option value="NEEM">NEEM</option>
+          <option value="SANDAL">SANDAL</option>
+      </select></td>
+    </tr>
   <tr>
     <th scope="row">DESCRIPTION</th>
-    <td><input type="text" name="description" id="textfield4" class="form-control" required/></td>
+ <td><textarea  name="description" id="description" class="form-control" required>{{ data.description }}height="50px"width="500px"</textarea></td>
   </tr>
   <tr>
     <th colspan="2" scope="row"><input type="submit" name="button" class="btn btn-success"  id="button" value="ADD" /></th>

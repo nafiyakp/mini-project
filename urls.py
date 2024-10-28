@@ -1,28 +1,132 @@
-"""
-URL configuration for woodcraft project.
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-from django.conf import settings
-from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path,include
-
+from django.urls import path
+from .import views
 urlpatterns = [
 
-    path('admin/', admin.site.urls),
-    path('myapp/', include('myapp.urls'))
+    path('login/',views.login),
+    path('add_design/',views.add_design),
+    path('add_design_post/',views.add_design_post),
+    path('add_diamension/', views.add_diamension),
+    path('add_diamension_post/', views.add_diamension_post),
+    path('add_shape/', views.add_shape),
+    path('add_shape_post/', views.add_shape_post),
+    path('add_wood/', views.add_wood),
+    path('add_woodtype_post/',views.add_wood_post),
+    path('add_post/',views.add_post),
+    path('add_post_post/', views.add_post_post),
+    path('viewdesign/',views.viewdesign),
+    path('viewdesign_post/', views.viewdesign_post),
+    path('edit_design/<id>', views.edit_design),
+    path('edit_design_post/', views.edit_design_post),
+    path('addcategory/',views.addcategory),
+    path('addcategory_post/',views.addcategory_post),
+    path('view_category/', views.view_category),
+    path('view_wood/', views.view_wood),
+    path('view_wood_post/', views.view_wood_post),
+    path('view_shape/', views.view_shape),
+    path('view_shape_post/', views.view_shape_post),
+    path('view_diamension/', views.view_diamension),
+    path('view_diamension_post/', views.view_diamension_post),
+
+    path('view_category_post/',views.view_category_post),
+    path('edit_wood/<id>', views.edit_wood),
+    path('edit_wood_post/', views.edit_wood_post),
+    path('edit_shape/<id>',views.edit_shape),
+    path('edit_shape_post/',views.edit_shape_post),
+    path('edit_diamension/<id>',views.edit_diamension),
+    path('edit_diamension_post/',views.edit_diamension_post),
+    path('edit_category/<id>', views.edit_category),
+    path('edit_category_post/', views.edit_category_post),
+    path('addproduct/', views.addproduct),
+    # path('view-product/', views.view_product),
+    # path('view-product_post/', views.view_product_post),
+    path('change_password/', views.change_password),
+    path('change_password_post/', views.change_password_post),
+    path('edit_post/<id>', views.edit_post),
+    path('edit_post_post/', views.edit_post_post),
+    path('view_orders/',views.view_orders),
+    path('view_orders_post/', views.view_orders_post),
+
+    path('view_orders_post/', views.view_orders_post),
+    path('view_post/', views.view_post),
+    path('view_post_post/',views.view_post_post),
+    path('verifi_orders/<id>',views.verifi_orders),
+    path('view_users/', views.view_users),
+    path('view_users_post/', views.view_users_post),
+    path('verifycustomised_orders/<id>',views.verifycustomised_orders),
+    path('view_verifiedorders/', views.view_verifiedorders),
+    path('view_verifiedorders_post/', views.view_verifiedorders_post),
+    path('viewcustomised_order/', views.viewcustomised_order),
+    # path('viewcustomised_order/', views.viewcustomised_order),
+    path('viewcustomised_order_post/', views.viewcustomised_order_post),
+    path('viewrating/', views.viewrating),
+
+    path('viewrating_post/', views.viewrating_post),
+    path('viewverified_customisedorder/', views.viewverified_customisedorder),
+    path('viewverified_customisedorder_post/', views.viewverified_customisedorder_post),
+    path('choose_category/', views.choose_category),
+    path('choose_category_post/', views.choose_category_post),
+
+    path('register/', views.register),
+    path('register_post/', views.register_post),
+    path('send_review/', views.send_review),
+    path('send_review_post/', views.send_review_post),
+    path('delete_category/<id>',views.delete_category),
+    path('delete_design/<id>',views.delete_design),
+    path('delete_post/<id>',views.delete_post),
+    path('delete_wood/<id>', views.delete_wood),
+    path('delete_shape/<id>', views.delete_shape),
+    path('delete_diamension/<id>', views.delete_diamension),
+    path('AddAmounttocustomisedproduct/<id>',views.AddAmounttocustomisedproduct),
+    path('AddAmounttocustomisedproduct_post/',views.AddAmounttocustomisedproduct_post),
+
+
+
+    # path('send_customized_request/', views.sendcustomized_request),
+    path('view_customizedrequeststatus/', views.view_customizedrequeststatus),
+    path('view_customizedrequeststatus_post/', views.view_customizedrequeststatus_post),
+
+    path('viewverifiedCustomiserequest_get/', views.viewverifiedCustomiserequest_get),
+
+
+
+    path('view_orderstatus/',views.view_orderstatus),
+    path('view_orderstatus_post/',views.view_orderstatus_post),
+    path('viewposts_post/',views.viewposts_post),
+    path('viewposts_post_post/',views.viewposts_post_post),
+    # path('view_product/', views.view_product),
+    # path('view_product_post/', views.view_product_post),
+    path('adminhome/',views.home),
+    path('home_user/',views.home_user),
+    path('login_post/',views.login_post),
+    path('view_profile/', views.view_profile),
+    path('sendcustomized_request/', views.sendcustomized_request),
+    path('edit_profile/', views.edit_profile),
+    path('edit_profilepost/', views.edit_profilepost),
+    path('send_review_post/<id>', views.send_review_post),
+    path('view_review/<id>', views.view_review),
+    path('send_review/<id>', views.send_review),
+    path('userviewdesign/<id>',views.userviewdesign),
+    path('userviewdesign_post/', views.userviewdesign_post),
+    path('send_order/<id>', views.send_order),
+    path('send_order_post/', views.send_order_post),
+    path('choose_category/', views.choose_category),
+    path('choose_category_post/', views.choose_category_post),
+
+
+    path('raz_pay/<amount>/<id>', views.raz_pay),
+
+    path('raz_payUser/<amount>/<id>', views.raz_payUser),
+    path('userviewdesign<id>', views.viewdesign),
+    path('viewposts_post<id>',views.viewposts_post),
+    path('viewposts_post_post',views.viewposts_post_post),
+    path('addCustomisedproduct_post/', views.addCustomisedproduct_post),
+    path('edit_cust_product/<id>', views.edit_customise_product),
+    path('edit_Customised_product_post/', views.edit_Customised_product_post),
+    path('sendcustomized_request_post/', views.sendcustomized_request_post),
+    path('delete_Customised_product/<id>', views.delete_Customised_product),
 
 ]
-urlpatterns=urlpatterns+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+

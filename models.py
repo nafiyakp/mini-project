@@ -8,13 +8,31 @@ class Login(models.Model):
 
 class Category(models.Model):
     category_name=models.CharField(max_length=100)
+    photo=models.CharField(max_length=300)
+
+class Wood(models.Model):
+    CATEGORY=models.ForeignKey(Category,on_delete=models.CASCADE)
+    wood_name=models.CharField(max_length=100)
+    sqft_charge=models.BigIntegerField()
+class Shapes(models.Model):
+    CATEGORY = models.ForeignKey(Category, on_delete=models.CASCADE)
+    shape=models.CharField(max_length=100)
+
+
+class Diamension(models.Model):
+    SHAPES=models.ForeignKey(Shapes,on_delete=models.CASCADE)
+    height=models.BigIntegerField()
+    width=models.BigIntegerField()
+    total_wood_needed=models.BigIntegerField()
 
 class Design(models.Model):
-    CATEGORY=models.ForeignKey(Category,on_delete=models.CASCADE)
+    WOOD=models.ForeignKey(Wood,on_delete=models.CASCADE)
     price=models.BigIntegerField()
+    shape=models.CharField(max_length=100,default="")
     description=models.CharField(max_length=100)
     photo=models.CharField(max_length=300)
     design_name=models.CharField(max_length=100)
+
 
 class Post(models.Model):
     post_name=models.CharField(max_length=100)
@@ -33,6 +51,9 @@ class Product(models.Model):
     price = models.BigIntegerField()
     photo=models.CharField(max_length=100)
     Quantity = models.CharField(max_length=100)
+
+
+
 
 class Customer(models.Model):
     LOGIN = models.ForeignKey(Login, on_delete=models.CASCADE)
@@ -55,6 +76,8 @@ class Order(models.Model):
 class Customized_order(models.Model):
     CUSTOMER=models.ForeignKey(Customer, on_delete=models.CASCADE)
     PRODUCT=models.ForeignKey(Product,on_delete=models.CASCADE)
+    DIMENSION = models.ForeignKey(Diamension, on_delete=models.CASCADE)
+    WOOD = models.ForeignKey(Wood, on_delete=models.CASCADE)
     date=models.DateField()
     status=models.CharField(max_length=100)
 

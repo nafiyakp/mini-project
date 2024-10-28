@@ -1,4 +1,7 @@
+{% extends 'user/userindex.html' %}
+{% block body %}
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,44 +10,58 @@
 <body>
 <form id="form1" name="form1" method="post" action="/myapp/edit_profilepost/">
     {% csrf_token %}
-  <table width="356" height="255" border="1">
+<table class="table table-bordered table-striped table-hover">
     <tr>
       <td width="176">CUSTOMER_NAME</td>
-      <td width="164"><input type="text" name="name" id="textfield" value={{ data.customer_name }}/></td>
+      <td width="164"><input type="text" name="name" id="textfield" value="{{ data.customer_name }}"required minlength="3" /></td>
     </tr>
     <tr>
       <td><p>EMAIL</p></td>
-      <td><input type="text" name="email" id="textfield2" value="{{ data.email }}"/></td>
+      <td><input type="text" name="email" id="textfield2" value="{{ data.email }}"required /></td>
     </tr>
     <tr>
       <td>MOBILE_NUMBER</td>
-      <td><input type="text" name="mobilenumber" id="textfield3" value={{ data.mobilenumber }} /></td>
+      <td><input type="text" name="mobilenumber" id="textfield3" value="{{ data.mobilenumber }}" pattern="[0-9]{10}"
+                       maxlength="10" required  /></td>
     </tr>
     <tr>
       <td>PLACE</td>
-      <td><input type="text" name="place" id="textfield4" value={{ dat.place }}/></td>
+      <td><input type="text" name="place" id="textfield4" value="{{ data.place }}"required/> </td>
     </tr>
     <tr>
       <td>DISTRICT</td>
-      <td><select name="district" id="select" value={{ data.district }}>
-        <option value="KOZHIKODE">KOZHIKODE</option>
-        <option value="KANNUR">KANNUR</option>
-        <option value="KOTTAYAM">KOTTAYAM</option>
-        <option value="THRISSUR">THRISSUR</option>
+      <td><select name="district" id="select" value="{{ data.district }}"required>
+
+           <option value="THIRUVANANTHAPURAM">THIRUVANANTHAPURAM</option>
+    <option value="KOLLAM">KOLLAM</option>
+    <option value="PATHANAMTHITTA">PATHANAMTHITTA</option>
+    <option value="ALAPPUZHA">ALAPPUZHA</option>
+    <option value="KOTTAYAM">KOTTAYAM</option>
+    <option value="IDUKKI">IDUKKI</option>
+    <option value="ERNAKULAM">ERNAKULAM</option>
+    <option value="THRISSUR">THRISSUR</option>
+    <option value="PALAKKAD">PALAKKAD</option>
+    <option value="MALAPPURAM">MALAPPURAM</option>
+    <option value="KOZHIKODE">KOZHIKODE</option>
+    <option value="WAYANAD">WAYANAD</option>
+    <option value="KANNUR">KANNUR</option>
+    <option value="KASARAGOD">KASARAGOD</option>
+
       </select></td>
     </tr>
     <tr>
       <td>POST</td>
-      <td><input type="text" name="post" id="textfield6" value={{ data.post }}/></td>
+      <td><input type="text" name="post" id="textfield6" value="{{ data.post }}"required/></td>
     </tr>
     <tr>
       <td>PIN</td>
-      <td><input type="text" name="pin" id="textfield7" value={{ data.pin}} /></td>
+      <td><input type="text" name="pin" id="textfield7" value={{ data.pin}} pattern="[0-9]{6}" maxlength="6" required/></td>
     </tr>
-      <td colspan="2"><input type="submit" name="button" id="button" value="EDIT" /></td>
+      <td colspan="2"><input type="submit" name="button" id="button" value="EDIT" class="btn btn-success" /></td>
     </tr>
   </table>
 </form>
 
 </body>
 </html>
+{% endblock %}

@@ -18,11 +18,11 @@
 <input type="hidden" value="{{ data.id }}" name="id">
     <tr>
       <th width="176" scope="col">WOOD_NAME</th>
-      <th width="121" scope="col"><input type="text" name="wood_name" id="5" value="{{ data.wood_name }} class="form-control""/></th>
+      <th width="121" scope="col"><input type="text" name="wood_name" id="5" value="{{ data.wood_name }}" class="form-control"pattern="[A-Z a-z]*" required/></th>
     </tr>
        <tr>
       <th width="176" scope="col">SQFT_CHARGE</th>
-      <th width="121" scope="col"><input type="text" name="sqft_charge" id="5" value= "{{ data.sqft_charge }} class="form-control""/> </th>
+      <th width="121" scope="col"><input type="text" name="sqft_charge" id="5" value= "{{ data.sqft_charge }}" class="form-control"pattern="[0-9]{1-6}"required/> </th>
     </tr>
     <tr>
       <td>&nbsp;</td>
